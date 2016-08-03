@@ -8,6 +8,22 @@
  *
  * @author RodolfoC
  */
-public class iMaze {
+public interface iMaze {
+    public void paint1(int [] pos);
+    
+    public void paint2 (int [] pos);
+    
+    public boolean check (int [] pos);
+    
+    public int [] forward (int [] pos);
+    
+    public int [] backward (int [] pos);
+    
+    public int [] right (int [] pos);
+    
+    public int [] left (int [] pos);
+    
+    
+    
     
 }
