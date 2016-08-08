@@ -10,15 +10,63 @@
  */
 public class Robot {
     
-    private int [] posicion;
+	private int x = 0;
+	private int y = 0;
+	private String[][] Laberinto;
+	private Maze Maze= new Maze();
+	
+	public Robot(){
+		x = 0;
+		y = 0;
+		Laberinto = Maze.escenarioUno(); 
+	}
+	
+	
+	public void revisarAdelante( int posy){
+            for (int j = 0; j < Laberinto[posy].length; j++) {
+               
+            	if(Laberinto[posy][j].equals(" ")){
+            		avanzar(posy,j);
+            	    }else
+            	    {
+            			
+            		}
+            	
+            		
+              
+	
+		   }
+	    }
+	
+	
+	public void avanzar(int x, int y){
+		
+		Laberinto[y][x]="*";
+		Maze.imprimirMatriz(Laberinto);
+		
+	}
+	
+	public void girarDerecha(){
+		
+	}
+	
+	public void girarIzquierda(){
+		
+	}
+	
+	public void regresar(){
+		
+	}
+	
+	public void revisarLados(int posx, int posy){
+		for (int j = 0; j < Laberinto[posy].length; j++) {
+            
+        	if(Laberinto[posy][j].equals(" ")){
+        		avanzar(posx,j);
+        	}
+	}
 
-    public void setPosicion(int[] posicion) {
-        this.posicion = posicion;
-    }
-
-    public int[] getPosicion() {
-        return posicion;
-    }
+ }
     
     
 }
