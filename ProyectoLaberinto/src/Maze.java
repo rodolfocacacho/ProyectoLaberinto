@@ -78,5 +78,66 @@ public class Maze implements iMaze{
             System.out.println();
         }
     }
+    public int[] checkSurroundings (int[][] maze, int x, int y){
+	int der = 0;
+	int izq = 0;
+	int up = 0;
+	int down = 0;
+	if (maze [x+1][y] == " "){
+		der = 1;
+	} if (maze [x-1][y] == " "){
+		izq = 1;
+	} if (maze [x][y+1] == " "){
+		down = 1;
+	} if (maze [x][y-1] == " "){
+		up = 1;
+	} if (maze [x+1][y] == "1"){
+		der = 2;
+	} if (maze [x-1][y] == "1"){
+		izq = 2;
+	} if (maze [x][y+1] == "1"){
+		down = 2;
+	} if (maze [x][y-1] == "1"){
+		up = 2;
+	}
+	int [] surroundings = new int [4];
+	surroundings[0] = der;
+	surroundings[1] = izq;
+	surroundings[2] = down;
+	surroundings[3] = up;
+	return surroindings;
+}
+public int direction (int[] x){
+	int suma = x[0]+x[1]+x[2]+x[3];
+	if (suma == 1){
+		//CUANDO HAY UNICAMENTE UN ESPACIO LIBRE
+		if (x[0] == 1){
+			move(1);
+		} if (x[1] == 1){
+			move(2);
+		} if (x[2] == 1){
+			move(3);
+		} if (x[3] == 1){
+			move(4);
+		}
+	}
+	//CUANDO HAY MAS DE UN ESPACIO LIBRE FALTA
+}
+public void move(int[][] maze, int x, int y, int dir){
+	if (dir == 1){
+		maze[x+1][y] = "*";
+	} if (dir == 2){
+		maze[x-1][y] = "*";
+	} if (dir == 3){
+		maze[x][y+1] = "*";
+	} if (dir == 4){
+		maze[x][y-1] = "*";
+	}
+	if (maze [x][y] == "_"){
+		maze [x][y] == "1";
+	} if (maze [x][y] == "1"){
+		maze [x][y] == "2";
+	}
+}
     
 }
