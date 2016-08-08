@@ -1,19 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author RodolfoC
- */
 public class Main {
-    public static void main(String[] args) {
-    
-    
-    	Maze prueba = new Maze();
-		prueba.imprimirMatriz(prueba.escenarioUno());
-    }
-    
+	public static void main(String[] args) {
+		Maze m = new Maze();
+		//Salida
+		m.getMaze()[1][1] = "X";
+		
+		// Posicion inicial
+		m.solve(14, 1);
+		System.out.println(m);
+		
+	}
 }
