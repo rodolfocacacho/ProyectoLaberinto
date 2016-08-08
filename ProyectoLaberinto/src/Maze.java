@@ -121,7 +121,7 @@ public int direction (int[] x){
 			move(4);
 		}
 	}
-	//CUANDO HAY MAS DE UN ESPACIO LIBRE FALTA
+	//CUANDO HAY MAS DE UN ESPACIO LIBRE FALTA O HAY UNOS
 }
 public void move(int[][] maze, int x, int y, int dir){
 	if (dir == 1){
