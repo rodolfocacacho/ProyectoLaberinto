@@ -90,7 +90,9 @@ int LIR(){
    return input(10);
 }   
 
-
+void interseccion(){
+    //revisar ambos lados para ver si hay lugares a donde cruzar
+}
   
 void turnRight(){ 
 
