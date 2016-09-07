@@ -1,12 +1,3 @@
-/*
- * Integrantes:
- * Rodolfo Cacacho
- * Rene Olivet
- * Diego Soler
- * Fredy España
- */
-
-
 #include "simpletools.h"                      // Include simpletools header
 #include "abdrive.h"                          // Include abdrive header
 #include "ping.h"                             // Include ping header
@@ -23,70 +14,107 @@ typedef struct stack ST;
 ST s;
 
 void push(int);
-int pop (void);
+int pop(void);
 
 int main()                                    // main function
 {
-  while(1){
-  drive_speed(50,50);
- 
- 
-  recursive(); 
-  
-    }   
+   
+   recursive();   
 
  
  }
 
 void recursive(){
-  
-  num= rand() % 3;
-  while(v_adelante()<5){
+  while(1){
     
-    push(num);
+  while(ping_cm(8)>= 10){
+       pause(5);
+       num= rand() % 3;
+       push(num);
+       drive_speed(60,60);
+   
     
-    turn=pop();
+  } 
+   
+    
+
+    if (RIR() == 0){
+      
+        
+       turnLeft();
+       recursive(); 
+       
+            
+     }
+     
+     if (LIR() == 0) {
+       turnRight();
+       recursive(); 
+      }
+ 
+      
+         
+      
+      
+      
+      else{
+       
+       turn=pop();
   
     if (turn == 1){
        turnLeft();
+       recursive(); 
      }
      if (turn == 2){
        turnRight();
-      }
+       recursive(); 
+      } 
+        
+      }         
       
- 
-  }  
-}             
+       
     
-int v_adelante(){
-  return ping_cm(8);
-}
+        
+  }
+  
+ }  
+            
+    
+int RIR(){
+   freqout(1, 1, 27000);
+   return input(2);
+} 
 
+int LIR(){
+   freqout(11, 1, 27000);
+   return input(10);
+}   
+
+
+  
 void turnRight(){ 
+
+  pause(250);
   drive_speed(0,0);
-  drive_goto(26,-25); //gira a la izquierda 
+  drive_goto(28,-25); //gira a la izquierda 
   pause(500);
   drive_goto(5,5);
-  return;
+  return;  
+
 }
 
 void turnLeft(){
- 
+
+  pause(250);
   drive_speed(0,0);
-  drive_goto(-26,25); //gira a la izquierda 
+  drive_goto(-28,25); //gira a la izquierda 
   pause(500);
   drive_goto(5,5);
-  return;
+  return;  
+
 }
 
-void turnBack(){
 
-  drive_goto(52,-52); //gira a la izquierda 
-  pause(500);
-   drive_goto(5,5);
- 
-  return;
-}
 
 
 void push(int a){
