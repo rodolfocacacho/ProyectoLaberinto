@@ -13,9 +13,9 @@
 #include "abdrive.h"                          // Include abdrive header
 #include "ping.h"                             // Include ping header
 
-int turn; 
-int num;  
-int anterior; 
+int turn; //Variable que indica a que direccion gira el robot
+int num;  //Variable que guarda los numeros random
+int anterior; //Llevar cuenta del giro anterior
 
 //Estructura del stack
 struct stack{
@@ -81,6 +81,16 @@ void recursive(){
      }       
             
   
+    
+    //Si hay obstaculo a la derecha, gire a la izquierda
+    if (RIR() == 0){
+      
+        
+       turnLeft();
+       recursive(); 
+       
+            
+     }
      
      //Si hay obstaculo a la izquierda, gire a la derecha
 
@@ -140,6 +150,19 @@ int LIR(){
    return input(10);
 }   
 
+
+//Verifica la interseccion
+int intersection(){
+
+if(LIR()==1 && RIR()==1){
+ return 1;  //Regrese 1
+} 
+
+else{
+ return 0; 
+} 
+ 
+}
  
  
 //Giro a la derecha  
@@ -167,6 +190,19 @@ void turnLeft(){
   anterior=1;
   return;  
 
+}
+
+//Giro hacia atras
+void turnBack(){
+  
+  pause(250);
+  drive_speed(0,0);
+  drive_goto(-25,25); //De retache
+  drive_goto(-25,25); 
+  pause(500);
+  drive_goto(5,5);
+  return; 
+  
 }
 
 //Push al stack
