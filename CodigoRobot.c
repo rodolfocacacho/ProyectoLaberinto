@@ -114,6 +114,18 @@ void turnLeft(){
 
 }
 
+//Cuando tiene pared en ambos lados y enfrente
+void turnBack(){
+    puese(250);
+    drive_speed(0,0);
+    drive_goto(-25,25);
+    drive_goto(-25,25); 
+    pause(500);
+    drive_goto(5,5);
+    return; 
+}
+    
+}
 
 
 
